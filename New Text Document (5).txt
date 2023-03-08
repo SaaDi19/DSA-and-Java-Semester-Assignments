@@ -1,0 +1,74 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Scenario {
+	
+	Stack<String> stack = new Stack();
+	
+	void search(String searchData){
+		stack.push(searchData);
+	}
+	
+	void History(){
+		while(stack.isEmpty()!=true)
+		System.out.println(stack.pop());
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<String> in=new ArrayList<String>();
+		
+		System.out.println("Available Books");
+		System.out.println("****************************");
+		in.add("American History");
+		in.add("Pakistan History");
+		in.add("Indian History");
+		in.add("Turkey History");
+		in.add("Sindh History");
+		
+		for(String i:in) 
+		System.out.println(i);
+		System.out.println("****************************");
+		Scanner input=new Scanner(System.in); 
+		String choice;
+		System.out.println("Add the Book");
+		System.out.println("Yes or No");
+		System.out.println();
+		choice=input.next();
+		//String yes;
+		if(choice.equals("yes")) {
+			in.add("New Book");
+			System.out.println(in);
+		}
+		else
+		{
+			System.out.println(in);
+		}
+		System.out.println("****************************");
+		String choice1;
+		System.out.println("Remove the Book");
+		System.out.println("Yes or No");
+		System.out.println();
+		choice=input.next();
+		
+		if(choice.equals("yes")) {
+			in.remove(0);
+			System.out.println(in);
+		}
+		else
+		{
+			System.out.println(in);
+		}
+		System.out.println("****************************");
+		Scenario obj1=new Scenario();
+	    obj1.search("available Books");
+	    obj1.search("add new Book");
+	    obj1.search("remove book");
+	    obj1.History();
+		
+		
+	}
+
+}

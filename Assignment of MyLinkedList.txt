@@ -1,0 +1,112 @@
+
+public class MyLinkedList<T>{
+      
+		Node head;
+	
+	void add(Person p)
+	{
+		
+	  //Person newPerson=new Person();
+		Node newPerson = new Node();
+		newPerson.data=p;
+		newPerson.next=null;
+		//newPerson.Name=p;
+		//newPerson.City=city;
+		//newPerson.Ocupation=occupation;
+		//newPerson.next=null;
+		
+	//	for(Person data=list) 
+		if(p.Name.equals(p.Name) && p.City.equals("Karachi") && p.Ocupation.equals(p.Ocupation) && head == null){
+			//if(head == null)
+		//{
+			head = newPerson;
+		}
+		else
+		{
+			 if (p.Name.equals(p.Name) && p.City.equals("Karachi") && p.Ocupation.equals(p.Ocupation)) {
+			Node currentPerson = head;
+			while(currentPerson.next!=null)
+			{
+				currentPerson = currentPerson.next;
+			}
+			currentPerson.next = newPerson;
+			}
+		}//}//
+	}
+	
+	
+	void display()
+	{
+		Node currentPerson= head;
+		while(currentPerson!=null)
+		{
+			System.out.println(currentPerson.data);
+			currentPerson=currentPerson.next;
+		}
+		/*for(Person data:list)
+		{
+			System.out.print("Name: "+data.Name+"City: "+data.City+"Occupation: "+data.Ocupation);
+		}*/
+	}
+	
+	
+	void remove(Person person)
+	{
+		//from there remove head
+		if(head.data==person)
+		{
+			head=head.next;
+		}		//at there only head remove
+		else
+		{
+			Node previousPerson=head;
+			Node currentPerson=head;
+			while(currentPerson!=null)
+			{
+				if(currentPerson.data == person)
+				{
+					previousPerson.next = currentPerson.next;
+				}
+				previousPerson=currentPerson;
+				currentPerson=currentPerson.next;
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+  MyLinkedList<String> list = new MyLinkedList();
+		
+  	Person p1 = new Person("Saadat1","Larkana","AD1");
+	Person p2 = new Person("Saadat2","Karachi","AD2");
+	Person p3 = new Person("Saadat3","Lahore","AD3");
+	Person p4 = new Person("Saadat4","Karachi","AD4");
+		
+		list.add(p1);
+		list.add(p2);
+		list.add(p3);
+		list.add(p4);
+	    list.remove(p4);
+		list.display();
+
+	}
+}
+class Node<T>
+{
+	T data;
+	Node next;
+}
+
+class Person<T>
+{
+	String Name;
+	String City;
+	String Ocupation;
+	
+	Person(	String Name,String City,String Ocupation){	
+		this.Name=Name;
+		this.City=City;
+		this.Ocupation=Ocupation;
+	}
+}
